@@ -90,13 +90,13 @@ function(x,labels=c("Reference","Focal"),width=7,height=7,...) {
     }
     legend("bottomright",labels,lty=1:x$ng,col=1:x$ng,bg="white")
     layout(matrix(c(1,2),ncol=2),widths=c(1,2))
-    boxplot(x$calib$theta-x$calib.sparse$theta,col = "light grey")
+    boxplot(x$calib$theta-x$calib.sparse$theta,col="light grey")
     difference<-x$calib$theta-x$calib.sparse$theta
     plot(x$calib$theta,difference,type="n",xlab="initial theta",ylab="initial - purified",...)
     abline(h=0)
     abline(h=mean(x$calib$theta-x$calib.sparse$theta),lty=2)
     for (i in 1:x$ng) {
-      points(x$calib$theta[x$group==as.numeric(names(table(x$group))[i])],difference[x$group==as.numeric(names(table(x$group))[i])],col=i,pch=i)
+      points(x$calib$theta[x$group==levels(as.factor(x$group))[i]],difference[x$group==levels(as.factor(x$group))[i]],col=i,pch=i)
     }
     legend("topright",labels,pch=1:x$ng,col=1:x$ng,bg="white")
   }

@@ -98,7 +98,7 @@ function(resp.data,group,selection=NULL,criterion=c("Chisqr","R2","Beta"),pseudo
     item.labels<-names(resp.recoded)
     meanraw<-apply(resp.recoded,1,mean,na.rm=T)
     outraw<-rundif(selection,resp.recoded,meanraw,group,criterion,alpha,beta.change,pseudo.R2,R2.change,weights)
-    calib<-mirt(resp.recoded,1,itemtype=ifelse(model=="GPCM","gpcm","graded"),technical=control)
+    calib<-mirt(resp.recoded,1,itemtype=ifelse(model=="GPCM","gpcm","graded"),technical=control,verbose=F)
     ipar<-extract(calib)
     row.names(ipar)<-item.labels
     theta<-calctheta(ipar,resp.recoded,theta.grid,model=model)
@@ -123,7 +123,7 @@ function(resp.data,group,selection=NULL,criterion=c("Chisqr","R2","Beta"),pseudo
           iter<-iter+1
           flag.matrix<-rbind(flag.matrix,flags)
           sparse.matrix<-separate(resp.recoded,flags,group)
-          calib.sparse<-mirt(sparse.matrix,1,itemtype=ifelse(model=="GPCM","gpcm","graded"),technical=control)
+          calib.sparse<-mirt(sparse.matrix,1,itemtype=ifelse(model=="GPCM","gpcm","graded"),technical=control,verbose=F)
           ipar.sparse<-extract(calib.sparse) 
           eqconst<-equate(ipar[!flags,],ipar.sparse[1:sum(!flags),],theta.grid,model=model)
           ipar.sparse[,1]<-ipar.sparse[,1]/eqconst[1]
@@ -168,7 +168,7 @@ function(resp.data,group,selection=NULL,criterion=c("Chisqr","R2","Beta"),pseudo
       flags[anchor]<-FALSE
       sparse.matrix<-separate(resp.recoded,flags,group)
       cat(" (mirt)\n")
-      calib.sparse<-mirt(sparse.matrix,1,itemtype=ifelse(model=="GPCM","gpcm","graded"),technical=control)
+      calib.sparse<-mirt(sparse.matrix,1,itemtype=ifelse(model=="GPCM","gpcm","graded"),technical=control,verbose=F)
       ipar.sparse<-extract(calib.sparse)
       eqconst<-equate(ipar[!flags,],ipar.sparse[1:sum(!flags),],theta.grid,model=model) 
       ipar.sparse[,1]<-ipar.sparse[,1]/eqconst[1]

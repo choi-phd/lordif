@@ -95,8 +95,9 @@ function(x,labels=c("Reference","Focal"),width=7,height=7,...) {
     plot(x$calib$theta,difference,type="n",xlab="initial theta",ylab="initial - purified",...)
     abline(h=0)
     abline(h=mean(x$calib$theta-x$calib.sparse$theta),lty=2)
+    cols<-palette.colors(n=x$ng,palette="R3",alpha=0.25)
     for (i in 1:x$ng) {
-      points(x$calib$theta[x$group==levels(as.factor(x$group))[i]],difference[x$group==levels(as.factor(x$group))[i]],col=i,pch=i)
+      points(x$calib$theta[x$group==levels(as.factor(x$group))[i]],difference[x$group==levels(as.factor(x$group))[i]],col=cols[i],pch=i)
     }
     legend("topright",labels,pch=1:x$ng,col=1:x$ng,bg="white")
   }

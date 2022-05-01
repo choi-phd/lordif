@@ -9,15 +9,15 @@ function(x,labels=c("Reference","Focal"),width=7,height=7,...) {
       return(ws)
     }
     maxcat<-ncol(x$ipar.sparse)
-    sysname<-Sys.info()[["sysname"]]
-    if(sysname=="Windows") {
-      dev.new(width=width,height=height,record=TRUE)
-    } else if (sysname=="Linux") {
-      dev.new(width=width,height=height)
-      par(ask=TRUE)
-    } else {
-      dev.new(width=width,height=height)
-    }
+    # sysname<-Sys.info()[["sysname"]]
+    # if(sysname=="Windows") {
+    #   dev.new(width=width,height=height,record=TRUE)
+    # } else if (sysname=="Linux") {
+    #   dev.new(width=width,height=height)
+    #   par(ask=TRUE)
+    # } else {
+    #   dev.new(width=width,height=height)
+    # }
     par(mfrow=c(1,1))
     theta<-seq(x$options$minTheta,x$options$maxTheta,x$options$inc)
     difitems<-(1:x$ni)[x$flag]

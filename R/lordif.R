@@ -4,6 +4,8 @@ function(resp.data,group,selection=NULL,criterion=c("Chisqr","R2","Beta"),pseudo
     call<-match.call()
     criterion<-match.arg(criterion)
     pseudo.R2<-match.arg(pseudo.R2)
+    resp.data<-as.data.frame(resp.data)
+    group<-unlist(group,use.names=FALSE)
     tni<-ncol(resp.data)
     if (!(criterion %in% c("Chisqr","R2","Beta"))) {
       warning("criterion must be one of the following: \"Chisqr\", \"R2\", or \"Beta\"; will be reset to \"Chisqr\"")
@@ -141,7 +143,7 @@ function(resp.data,group,selection=NULL,criterion=c("Chisqr","R2","Beta"),pseudo
           if (compare(flags,flag.matrix) || iter==maxIter) {
             if (!all(pre.flags==flags)) {
               sparse.matrix<-separate(resp.recoded,flags,group)
-              calib.sparse<-mirt(sparse.matrix,1,itemtype=ifelse(model=="GPCM","gpcm","graded"),technical=control)
+              calib.sparse<-mirt(sparse.matrix,1,itemtype=ifelse(model=="GPCM","gpcm","graded"),technical=control,verbose=F)
               ipar.sparse<-extract(calib.sparse) 
               eqconst<-equate(ipar[!flags,],ipar.sparse[1:sum(!flags),],theta.grid,model=model)
               ipar.sparse[,1]<-ipar.sparse[,1]/eqconst[1]
@@ -153,7 +155,7 @@ function(resp.data,group,selection=NULL,criterion=c("Chisqr","R2","Beta"),pseudo
         }
         if (!compare(flags,flag.matrix) && iter==maxIter) {
           sparse.matrix<-separate(resp.recoded,flags,group)
-          calib.sparse<-mirt(sparse.matrix,1,itemtype=ifelse(model=="GPCM","gpcm","graded"),technical=control)
+          calib.sparse<-mirt(sparse.matrix,1,itemtype=ifelse(model=="GPCM","gpcm","graded"),technical=control,verbose=F)
           ipar.sparse<-extract(calib.sparse)
           eqconst<-equate(ipar[!flags,],ipar.sparse[1:sum(!flags),],theta.grid,model=model) 
           ipar.sparse[,1]<-ipar.sparse[,1]/eqconst[1]

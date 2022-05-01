@@ -11,7 +11,8 @@ S3method(plot, lordif.MC)
 # Imported functions
 importFrom(mirt, mirt)
 importFrom(rms,lrm)
-importFrom("grDevices", dev.new)
+importFrom("grDevices", "dev.new")
+importFrom("grDevices", "palette.colors")
 importFrom("graphics", "abline", "boxplot", "layout", "legend",
            "lines", "par", "plot", "points", "text")
 importFrom("stats4", "coef")

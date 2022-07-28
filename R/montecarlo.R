@@ -1,7 +1,7 @@
 montecarlo <-
 function(obj,alpha=0.01,nr=100) {
     call<-match.call()
-    if (class(obj)!="lordif") stop(paste(deparse(substitute(obj))," must be of class lordif"))
+    if (!inherits(obj,"lordif")) stop(paste(deparse(substitute(obj))," must be of class lordif"))
     if (alpha<0 || alpha>1) {
       warning("alpha must be a fraction between 0 and 1; will be reset to .01")
       alpha<-.01

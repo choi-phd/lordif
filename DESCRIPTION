@@ -2,7 +2,7 @@ Package: lordif
 Type: Package
 Title: Logistic Ordinal Regression Differential Item Functioning using IRT
 Version: 0.4.0
-Date: 2022-5-5
+Date: 2022-7-28
 Author: Seung W. Choi, with contributions from Laura E. Gibbons and
         Paul K. Crane
 Maintainer: Seung W. Choi <schoi@austin.utexas.edu>

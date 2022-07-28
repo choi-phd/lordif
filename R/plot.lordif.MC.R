@@ -1,6 +1,6 @@
 plot.lordif.MC <-
 function(x,mfrow=c(3,1),width=7,height=7,...) {
-    if (class(x)!="lordif.MC") stop(paste(deparse(substitute(x))," must be of class lordif.MC"))
+    if (!inherits(x,"lordif.MC")) stop(paste(deparse(substitute(x))," must be of class lordif.MC"))
     nr<-x$nr
     Item<-1:dim(x$cutoff)[1]
     # sysname<-Sys.info()[["sysname"]]

@@ -8,7 +8,7 @@
   plots diagnostic graphs for items flagged for DIF
 }
 \usage{
-  \method{plot}{lordif}(x, labels = c("Reference", "Focal"), width = 7, height = 7, \dots)
+  \method{plot}{lordif}(x, labels = c("Reference", "Focal"), width = 7, height = 7, BW = FALSE, \dots)
 }
 %- maybe also 'usage' for other objects documented here.
 \arguments{
@@ -16,6 +16,7 @@
   \item{labels}{ labels for group levels, e.g., c("Male","Female") }
   \item{width}{ width of the canvas of the plotting device in inches }
   \item{height}{ height of the canvas of the plotting device in inches }
+  \item{BW}{ whether to plot in black-and-white rather than in color }
   \item{...}{ extra graphical parameters }
 }
 \details{

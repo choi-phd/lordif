@@ -8,7 +8,7 @@
   Produces plots for Monte Carlo output
 }
 \usage{
-  \method{plot}{lordif.MC}(x, mfrow = c(3, 1), width = 7, height = 7, \dots)
+  \method{plot}{lordif.MC}(x, mfrow = c(3, 1), width = 7, height = 7, BW = FALSE, \dots)
 %plot.lordif.MC(x, mfrow = c(3, 1), width = 7, height = 7, ...)
 }
 %- maybe also 'usage' for other objects documented here.
@@ -17,6 +17,7 @@
   \item{mfrow}{ number of rows and columns per page for multi-fane plots }
   \item{width}{ width of the canvas of the plotting device in inches }
   \item{height}{ height of the canvas of the plotting device in inches }
+  \item{BW}{ whether to plot in black-and-white rather than in color }
   \item{...}{ extra graphical parameters }
 }
 \details{

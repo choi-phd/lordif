@@ -36,9 +36,9 @@ gender_DIF <- lordif(resp.data, gender)
 
 By default, the graded response model is fitted to the response data and the likelihood-ratio $\chi^2$ statistic is used to flag DIF items with $\alpha = 0.01$.
 
-### Plotting DIF
+### Displaying DIF items
 
-Graphically displaying the DIF effects:
+Displaying the DIF effects graphically:
 
 ```r
 plot(gender_DIF, labels = c("Male", "Female"))
@@ -52,13 +52,22 @@ The flagging criterion can be determined empirically through Monte Carlo simulat
 lordif(resp.data, gender, MonteCarlo = TRUE)
 ```
 
-### Running Monte Carlo simulations to generate empirical thresholds
+### Estaglishing empirical thresholds through Monte Carlo simulations
 
-The `MonteCarlo = TRUE` option above calls the `montecarlo()` function internally to generate empirical thresholds. We can generate
+The `MonteCarlo = TRUE` option above calls the `montecarlo()` function internally to generate and apply empirically determined thresholds in lieu of pre-specified or theoretically determined thresholds. We can call the `montecarlo()` function separately to generate empirical thresholds. The following generates empirical thresholds based on 200 DIF-free datasets (conforming to the dimension of the observed data, `resp.data`):
 
 ```r
-gender_DIF_MC <- montecarlo(gender_DIF, nr = 100)
+gender_DIF_MC <- montecarlo(gender_DIF, nr = 200)
 ```
+
+### Displaying empirical thresholds
+
+Displaying the empirical thresholds graphically:
+
+```r
+plot(gender_DIF_MC)
+```
+
 
 
 

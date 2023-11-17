@@ -82,7 +82,7 @@ function(resp.data,group,selection=NULL,criterion=c("Chisqr","R2","Beta"),pseudo
       if (sum(weights)>0 && normwt) weights <- weights * nobs / sum(weights)
     }
     if (nobs != length(group)) stop("nrow of resp.data and length of group are non-conformable") 
-    if (ni<3) stop("number of items must be at least 4") 
+    if (ni<3) stop("number of items must be at least 3") 
     compare<-function(x,table) {
       for (i in 1:nrow(table)) {
         if (all(table[i,]==x)) return(TRUE)

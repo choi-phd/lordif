@@ -1,6 +1,6 @@
 # lordif
 
-The `lordif` package performs an ordinal (common odds-ratio) logistic regression differential item functioning (DIF) analysis using IRT theta estimates as the conditioning variable. The graded response model (GRM) or the generalized partial credit model (GPCM) is used for IRT parameter estimation. Items flagged for DIF are treated as unique to each group and group-specific item parameters are obtained. Non-DIF items serve as anchor items to the initial calibration. The procedure then runs iteratively until the same set of items is flagged over two consecutive iterations, unless anchor items are specified _a priori_.
+The `lordif` package can be used to perform an ordinal (common odds-ratio) logistic regression differential item functioning (DIF) analysis using IRT theta estimates as the conditioning variable. The graded response model (GRM) or the generalized partial credit model (GPCM) is used for IRT parameter estimation. Items flagged for DIF are treated as unique to each group and group-specific item parameters are obtained. Non-DIF items serve as anchor items to the initial calibration. The procedure runs iteratively until the same set of items is flagged over two consecutive iterations, unless anchor items are specified _a priori_.
 
 ## Quick start
 
@@ -42,6 +42,16 @@ Displaying the DIF effects graphically:
 
 ```r
 plot(gender_DIF, labels = c("Male", "Female"))
+```
+
+### Saving DIF plots
+
+The plots can be saved as a PDF file (or in other formats), e.g.,
+
+```r
+pdf(...)
+plot(gender_DIF, labels = c("Male", "Female"))
+dev.off()
 ```
 
 ### Flagging using empirical thresholds

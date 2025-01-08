@@ -1,9 +1,17 @@
 Package: lordif
-Version: 0.4.1
-Date: 2024-1-7
+Version: 0.4.2
+Date: 2025-1-8
 Title: Logistic Ordinal Regression Differential Item Functioning using IRT
-Author: Seung W. Choi, with contributions from Laura E. Gibbons and
-        Paul K. Crane
+Authors@R: c(person(given = c("Seung", "W."),
+                    family = "Choi",
+                    role = c("aut", "cre"),
+                    email = "schoi@austin.utexas.edu"),
+             person(given = c("Laura", "E."),
+                    family = "Gibbons",
+                    role = "aut"),
+             person(given = c("Paul", "K."),
+                    family = "Crane",
+                    role = "aut"))
 Maintainer: Seung W. Choi <schoi@austin.utexas.edu>
 Depends: R (>= 3.6.0), mirt, rms, doSNOW, foreach
 Description: Performs analysis of Differential Item Functioning (DIF) for

@@ -1,16 +1,15 @@
 Package: lordif
-Type: Package
-Title: Logistic Ordinal Regression Differential Item Functioning using IRT
 Version: 0.4.1
-Date: 2022-10-29
+Date: 2024-1-7
+Title: Logistic Ordinal Regression Differential Item Functioning using IRT
 Author: Seung W. Choi, with contributions from Laura E. Gibbons and
         Paul K. Crane
 Maintainer: Seung W. Choi <schoi@austin.utexas.edu>
+Depends: R (>= 3.6.0), mirt, rms, doSNOW, foreach
 Description: Performs analysis of Differential Item Functioning (DIF) for
         dichotomous and polytomous items using an iterative hybrid of
-        ordinal logistic regression and item response theory (IRT) 
+        ordinal logistic regression and item response theory (IRT)
         according to Choi, Gibbons, & Crane (2011) <doi:10.18637/jss.v039.i08>.
-Depends: R (>= 3.6.0), mirt, rms, doSNOW, foreach
 Imports: stats4
 License: GPL (>= 2)
 LazyLoad: yes

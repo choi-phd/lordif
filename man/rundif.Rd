@@ -7,7 +7,7 @@
   Runs ordinal logistic regression DIF
 }
 \usage{
-rundif(item, resp, theta, gr, criterion, alpha, beta.change, pseudo.R2, R2.change, wt)
+rundif(item, resp, theta, gr, criterion, alpha, beta.change, pseudo.R2, R2.change, wt, ...)
 }
 \arguments{
   \item{item}{ a selection of items to be analyzed }
@@ -20,6 +20,7 @@ rundif(item, resp, theta, gr, criterion, alpha, beta.change, pseudo.R2, R2.chang
   \item{pseudo.R2}{ pseudo R-squared measure (i.e., "McFadden", "Nagelkerke", or "CoxSnell") }
   \item{R2.change}{ R-squared change for pseudo R-squared criterion }
   \item{wt}{ optional sample weights }
+  \item{...}{ arguments passed to \code{rms::lrm} (or \code{rms::lrm.fit}) }
 }
 \details{
   The argument item lists the column numbers of the data frame resp to be included in the analysis.

@@ -7,13 +7,14 @@
   Runs ordinal logistic regression models and produces DIF statistics and effect size measures
 }
 \usage{
-runolr(rv, ev, gr, wt)
+runolr(rv, ev, gr, wt, ...)
 }
 \arguments{
   \item{rv}{ a response variable }
   \item{ev}{ an explanatory variable (e.g., conditioning variable) }
   \item{gr}{ a vector of group identifiers }
   \item{wt}{ a vector of optional sample weights }
+  \item{...}{ arguments passed to \code{rms::lrm} (or \code{rms::lrm.fit}) }
 }
 \details{
   Model 1: ev
